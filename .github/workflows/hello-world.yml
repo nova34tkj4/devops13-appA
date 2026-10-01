@@ -1,0 +1,22 @@
+name: Hello World Demo
+
+# Menentukan kapan otomatisasi ini berjalan (saat melakukan push ke branch main)
+on:
+  push:
+    branches: [ "main" ]
+
+# Berisi satu atau lebih pekerjaan (jobs) yang akan dieksekusi
+jobs:
+  say-hello:
+    # Menentukan tipe mesin virtual / runner OS yang digunakan
+    runs-on: ubuntu-latest
+
+    # Langkah-langkah berurutan yang dijalankan di dalam job
+    steps:
+      # Langkah opsional untuk mengunduh kode repositori ke runner
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Menjalankan perintah shell untuk mencetak teks
+      - name: Run Hello World
+        run: echo "Hello, World!"
